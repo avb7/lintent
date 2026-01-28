@@ -7,10 +7,13 @@ hide:
 ---
 
 <style>
-/* Reset MkDocs content constraints */
-.md-main__inner { margin: 0; }
-.md-content__inner { padding: 0; max-width: 100%; }
-.md-content { max-width: 100%; }
+/* Reset MkDocs content constraints for full-width landing */
+.md-main__inner { margin: 0 !important; max-width: 100% !important; }
+.md-content__inner { padding: 0 !important; max-width: 100% !important; margin: 0 !important; }
+.md-content { max-width: 100% !important; margin: 0 !important; }
+.md-main { width: 100% !important; }
+.md-container { max-width: 100% !important; }
+.md-grid { max-width: 100% !important; margin: 0 !important; }
 
 /* ===== HERO SECTION ===== */
 .hero-section {
@@ -72,7 +75,6 @@ hide:
   padding: 0.5rem 1rem;
   background: hsla(0, 0%, 100%, 0.1);
   border: 1px solid hsla(0, 0%, 100%, 0.2);
-  border-radius: 9999px;
   font-size: 0.875rem;
   margin-bottom: 2rem;
   backdrop-filter: blur(10px);
@@ -118,7 +120,6 @@ hide:
   align-items: center;
   gap: 0.5rem;
   padding: 0.875rem 1.75rem;
-  border-radius: 0.5rem;
   font-weight: 600;
   font-size: 1rem;
   text-decoration: none;
@@ -160,7 +161,6 @@ hide:
   margin-top: 3rem;
   background: hsla(0, 0%, 0%, 0.4);
   border: 1px solid hsla(0, 0%, 100%, 0.1);
-  border-radius: 0.75rem;
   padding: 1rem 1.5rem;
   font-family: 'JetBrains Mono', monospace;
   font-size: clamp(0.7rem, 1.5vw, 0.875rem);
@@ -227,7 +227,6 @@ hide:
 
 .comparison-card {
   background: white;
-  border-radius: 1rem;
   padding: 1.5rem;
   border: 1px solid hsl(240 5.9% 90%);
 }
@@ -250,7 +249,6 @@ hide:
 
 .comparison-card pre {
   background: hsl(240 4.8% 95.9%);
-  border-radius: 0.5rem;
   padding: 1rem;
   font-size: 0.75rem;
   overflow-x: auto;
@@ -276,7 +274,6 @@ hide:
 .feature-card {
   padding: 1.5rem;
   border: 1px solid hsl(240 5.9% 90%);
-  border-radius: 1rem;
   transition: all 0.2s;
 }
 
@@ -285,7 +282,7 @@ hide:
 }
 
 .feature-card:hover {
-  border-color: hsl(240 5.9% 70%);
+  border-color: #f97316;
   transform: translateY(-2px);
 }
 
@@ -296,7 +293,6 @@ hide:
   align-items: center;
   justify-content: center;
   background: hsl(240 4.8% 95.9%);
-  border-radius: 0.625rem;
   font-size: 1.25rem;
   margin-bottom: 1rem;
 }
@@ -368,7 +364,6 @@ hide:
   gap: 0.5rem;
   padding: 0.625rem 1rem;
   background: hsl(240 4.8% 95.9%);
-  border-radius: 0.5rem;
   font-weight: 500;
   font-size: 0.9rem;
 }
@@ -393,7 +388,6 @@ hide:
   margin: 2rem auto;
   background: hsl(240 4.8% 95.9%);
   border: 1px solid hsl(240 5.9% 90%);
-  border-radius: 0.75rem;
   padding: 1.25rem 1.5rem;
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.875rem;
