@@ -283,7 +283,7 @@ lintent takes too long.
 
 If you're still stuck:
 
-1. Check the [GitHub Issues](https://github.com/lintent/lintent/issues)
+1. Check the [GitHub Issues](https://github.com/avb7/lintent/issues)
 2. Run with `--pretty` to see full output
 3. Verify linters work independently first
 4. Create an issue with:

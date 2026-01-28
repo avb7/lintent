@@ -1,7 +1,7 @@
 {
   "name": "lintent",
   "version": "0.1.0",
-  "description": "A lint runner that enriches violations with semantic meaning for LLMs",
+  "description": "Make slop illegal. A semantic lint runner that enriches violations with context for AI agents.",
   "type": "module",
   "main": "./dist/index.js",
   "bin": {
@@ -10,8 +10,11 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "test": "vitest",
-    "lint": "tsc --noEmit"
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run lint && npm run test && npm run build",
+    "semantic-release": "semantic-release"
   },
   "keywords": [
     "lint",
@@ -21,16 +24,32 @@
     "semantic",
     "ruff",
     "eslint",
-    "pyright"
+    "pyright",
+    "typescript",
+    "python",
+    "code-quality",
+    "developer-tools",
+    "cli"
   ],
-  "author": "",
+  "author": "lintent",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avb7/lintent.git"
+  },
+  "homepage": "https://avb7.github.io/lintent",
+  "bugs": {
+    "url": "https://github.com/avb7/lintent/issues"
+  },
   "dependencies": {
     "commander": "^12.1.0",
     "yaml": "^2.6.1"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
     "@types/node": "^22.10.0",
+    "semantic-release": "^25.0.2",
     "typescript": "^5.7.2",
     "vitest": "^2.1.8"
   },

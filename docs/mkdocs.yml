@@ -1,9 +1,9 @@
 site_name: lintent
 site_description: A lint runner that enriches violations with semantic meaning for LLMs
-site_url: https://lintent.dev
+site_url: https://avb7.github.io/lintent
 
-repo_name: lintent/lintent
-repo_url: https://github.com/lintent/lintent
+repo_name: avb7/lintent
+repo_url: https://github.com/avb7/lintent
 
 theme:
   name: material
@@ -105,6 +105,6 @@ nav:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/lintent/lintent
+      link: https://github.com/avb7/lintent
     - icon: fontawesome/brands/npm
       link: https://www.npmjs.com/package/lintent

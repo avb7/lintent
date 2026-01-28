@@ -431,7 +431,7 @@ hide:
     <a href="getting-started/installation/" class="hero-btn hero-btn-primary">
       Get Started →
     </a>
-    <a href="https://github.com/lintent/lintent" class="hero-btn hero-btn-secondary">
+    <a href="https://github.com/avb7/lintent" class="hero-btn hero-btn-secondary">
       View on GitHub
     </a>
   </div>

@@ -133,7 +133,7 @@ We're actively working on support for:
 | C/C++ | clang-tidy | Planned |
 | Ruby | rubocop | Planned |
 
-Want to help? Check the [Developer Guide](https://github.com/lintent/lintent/blob/main/DEVGUIDE.md) for how to add new linter support.
+Want to help? Check the [Developer Guide](https://github.com/avb7/lintent/blob/main/DEVGUIDE.md) for how to add new linter support.
 
 ## Adding New Linters
 
@@ -143,4 +143,4 @@ New linters can be added by implementing a parser module. The process:
 2. Add detection logic for config files
 3. Register the parser in the runner
 
-See [DEVGUIDE.md](https://github.com/lintent/lintent/blob/main/DEVGUIDE.md) for detailed instructions.
+See [DEVGUIDE.md](https://github.com/avb7/lintent/blob/main/DEVGUIDE.md) for detailed instructions.
