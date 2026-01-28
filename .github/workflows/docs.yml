@@ -44,6 +44,7 @@ jobs:
         run: |
           cd docs
           mkdocs build --strict
+          python add-og-tags.py
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

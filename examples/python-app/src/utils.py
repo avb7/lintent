@@ -1,35 +1,42 @@
-"""Utility functions with intentional lint violations."""
+"""Utility functions for data processing."""
 
-import re  # F401: unused import
 from datetime import datetime
-from typing import Optional
+from typing import Any, Callable
 
 
-def helper_function(value):  # pyright: reportMissingParameterType
-    """A helper function without proper type hints."""
-    temp = value * 2  # F841: temp is assigned but might not be used
+def helper_function(value: int) -> int:
+    """A helper function that returns the input value."""
     return value
 
 
-def format_date(date):  # pyright: reportMissingParameterType
-    """Format a date value."""
-    unused_format = "%Y-%m-%d"  # F841: unused variable
-    return str(date)
+def format_date(date: datetime) -> str:
+    """Format a date value as ISO string."""
+    return date.isoformat()
 
 
-def calculate_total(prices, tax_rate, discount=0, extra_fees=[], apply_rounding=True):  # B006: mutable default
+def calculate_total(
+    prices: list[float],
+    tax_rate: float,
+    discount: float = 0,
+    extra_fees: list[float] | None = None,
+    apply_rounding: bool = True,
+) -> float:
     """Calculate total with various options.
-    
-    This function has a very long docstring line that exceeds the maximum line length limit and should trigger E501.
+
+    Args:
+        prices: List of item prices
+        tax_rate: Tax rate to apply (e.g., 0.08 for 8%)
+        discount: Discount amount to subtract
+        extra_fees: Optional list of additional fees
+        apply_rounding: Whether to round the result to 2 decimal places
     """
+    if extra_fees is None:
+        extra_fees = []
+
     subtotal = sum(prices)
     tax = subtotal * tax_rate
-    
-    for fee in extra_fees:
-        extra_fees.append(fee)  # This would cause infinite loop, but demonstrates B006 issue
-    
     total = subtotal + tax - discount + sum(extra_fees)
-    
+
     if apply_rounding:
         return round(total, 2)
     return total
@@ -37,21 +44,21 @@ def calculate_total(prices, tax_rate, discount=0, extra_fees=[], apply_rounding=
 
 class DataProcessor:
     """A data processor class."""
-    
-    def __init__(self, data):  # pyright: reportMissingParameterType
+
+    def __init__(self, data: list[Any]) -> None:
         self.data = data
-        self.cache = {}
-    
-    def process(self, transform_func):  # pyright: reportMissingParameterType
+        self.cache: dict[str, Any] = {}
+
+    def process(self, transform_func: Callable[[Any], Any]) -> list[Any]:
         """Process data with a transform function."""
-        unused_timestamp = datetime.now()  # F841: unused variable
-        
-        result = []
-        for item in self.data:
-            result.append(transform_func(item))
-        
-        return result
-    
-    def get_summary(self):
-        """Get a summary of the data. This method has a very long description that goes beyond the recommended line length limit for code readability."""
-        return {"count": len(self.data), "type": type(self.data).__name__}
+        return [transform_func(item) for item in self.data]
+
+    def get_summary(self) -> dict[str, Any]:
+        """Get a summary of the data.
+
+        Returns a dictionary with count and type information.
+        """
+        return {
+            "count": len(self.data),
+            "type": type(self.data).__name__,
+        }

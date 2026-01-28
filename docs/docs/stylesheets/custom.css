@@ -1,0 +1,517 @@
+/* ========================================
+   LINTENT - Custom Theme Styles
+   Beautiful, modern design with orange branding
+   ======================================== */
+
+/* Brand Colors */
+:root {
+  --lintent-orange: #f97316;
+  --lintent-orange-light: #fb923c;
+  --lintent-orange-dark: #ea580c;
+  --lintent-orange-glow: rgba(249, 115, 22, 0.15);
+  --lintent-gradient: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+}
+
+/* ========================================
+   GLOBAL OVERFLOW PROTECTION
+   ======================================== */
+html, body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Container constraints */
+.md-container, .md-main, .md-content, .md-typeset,
+.container-wrapper, main, article, .prose, [class*="prose"] {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+/* ========================================
+   ASCII LOGO - Responsive & Always Visible
+   ======================================== */
+.ascii-logo,
+.hero pre,
+pre.ascii-logo {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  color: var(--lintent-orange) !important;
+  text-align: center;
+  margin: 1.5rem auto !important;
+  padding: 1rem;
+  background: var(--lintent-orange-glow);
+  border: 1px solid rgba(249, 115, 22, 0.2);
+  border-radius: 12px;
+  overflow-x: auto !important;
+  max-width: 100% !important;
+  display: block;
+  line-height: 1.15 !important;
+  white-space: pre;
+  /* Responsive font size - scales with viewport */
+  font-size: clamp(0.35rem, 1.8vw, 0.6rem) !important;
+}
+
+/* Desktop: larger logo */
+@media (min-width: 768px) {
+  .ascii-logo, .hero pre, pre.ascii-logo {
+    font-size: clamp(0.45rem, 1.2vw, 0.65rem) !important;
+    padding: 1.5rem 2rem;
+  }
+}
+
+/* Mobile: smaller but still visible */
+@media (max-width: 480px) {
+  .ascii-logo, .hero pre, pre.ascii-logo {
+    font-size: 0.32rem !important;
+    padding: 0.75rem 0.5rem;
+    margin: 1rem auto !important;
+    border-radius: 8px;
+  }
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+.hero {
+  text-align: center;
+  padding: 3rem 1.5rem 2rem;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+}
+
+.hero h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  opacity: 0.85;
+  max-width: 650px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.6;
+}
+
+/* ========================================
+   BUTTONS - Modern with gradient
+   ======================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none !important;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+  margin: 0.25rem;
+}
+
+.btn-primary {
+  background: var(--lintent-gradient) !important;
+  color: white !important;
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.45);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid hsl(var(--border));
+  color: hsl(var(--foreground));
+}
+
+.btn-secondary:hover {
+  border-color: var(--lintent-orange);
+  color: var(--lintent-orange);
+  background: var(--lintent-orange-glow);
+}
+
+/* ========================================
+   COMPARISON CARDS - Side by side showcase
+   ======================================== */
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+@media (min-width: 700px) {
+  .comparison {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.comparison-card {
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: hsl(var(--card));
+  border: 2px solid hsl(var(--border));
+  transition: all 0.3s ease;
+  overflow: hidden !important;
+  max-width: 100% !important;
+}
+
+.comparison-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.comparison-card.bad {
+  border-color: #ef4444;
+  background: linear-gradient(to bottom, rgba(239, 68, 68, 0.05), transparent);
+}
+
+.comparison-card.bad:hover {
+  box-shadow: 0 8px 25px rgba(239, 68, 68, 0.15);
+}
+
+.comparison-card.good {
+  border-color: #22c55e;
+  background: linear-gradient(to bottom, rgba(34, 197, 94, 0.05), transparent);
+}
+
+.comparison-card.good:hover {
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.15);
+}
+
+.comparison-card h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.comparison-card pre {
+  overflow-x: auto !important;
+  max-width: 100% !important;
+  font-size: 0.8rem;
+  border-radius: 8px;
+  margin: 0.75rem 0;
+}
+
+.comparison-card p {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* ========================================
+   FEATURE GRID - Beautiful cards
+   ======================================== */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: 1.25rem;
+  margin: 2.5rem 0;
+}
+
+.feature {
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  transition: all 0.3s ease;
+}
+
+.feature:hover {
+  border-color: var(--lintent-orange);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(249, 115, 22, 0.12);
+}
+
+.feature h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.feature p {
+  margin: 0;
+  opacity: 0.8;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ========================================
+   LINTER BADGES - Pill style
+   ======================================== */
+.linters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.linter-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: hsl(var(--muted));
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid hsl(var(--border));
+  transition: all 0.2s ease;
+}
+
+.linter-badge:hover {
+  border-color: var(--lintent-orange);
+  background: var(--lintent-orange-glow);
+}
+
+/* ========================================
+   TABBED CONTENT - Clean tabs
+   ======================================== */
+.tabbed-set {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 1.5rem 0;
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
+  overflow: hidden;
+  background: hsl(var(--card));
+}
+
+.tabbed-set > input {
+  display: none;
+}
+
+.tabbed-set > input + label {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+  color: hsl(var(--muted-foreground));
+}
+
+.tabbed-set > input:checked + label {
+  color: var(--lintent-orange);
+  border-bottom-color: var(--lintent-orange);
+  background: var(--lintent-orange-glow);
+}
+
+.tabbed-set > input + label:hover {
+  color: var(--lintent-orange);
+}
+
+.tabbed-content {
+  padding: 1rem;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+}
+
+.tabbed-content pre {
+  margin: 0;
+  border-radius: 8px;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+}
+
+/* ========================================
+   CODE BLOCKS - Styled
+   ======================================== */
+.highlight, [class*="language-"].highlight {
+  overflow-x: auto !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  border-radius: 8px;
+}
+
+pre, code {
+  overflow-x: auto !important;
+  max-width: 100% !important;
+}
+
+.md-typeset pre, .highlight pre {
+  overflow-x: auto !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  border-radius: 8px;
+}
+
+.md-typeset pre > code, .highlight pre > code {
+  display: block;
+  overflow-x: auto !important;
+  white-space: pre;
+  max-width: 100% !important;
+}
+
+/* ========================================
+   ADMONITIONS - Styled tips/notes
+   ======================================== */
+.admonition {
+  border-radius: 12px !important;
+  border-left: 4px solid var(--lintent-orange) !important;
+  margin: 1.5rem 0;
+}
+
+.admonition.tip {
+  border-left-color: var(--lintent-orange) !important;
+  background: var(--lintent-orange-glow) !important;
+}
+
+/* ========================================
+   SECTION DIVIDERS - Subtle lines
+   ======================================== */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, hsl(var(--border)), transparent);
+  margin: 3rem 0;
+}
+
+/* ========================================
+   TYPOGRAPHY - Clean text
+   ======================================== */
+.md-typeset {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+.md-typeset h2 {
+  margin-top: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.md-typeset h3 {
+  margin-top: 2rem;
+  font-weight: 600;
+}
+
+/* Orange highlight spans */
+span[style*="color: #f97316"] {
+  background: var(--lintent-orange-glow);
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+}
+
+/* Hide ugly permalink symbols */
+.headerlink {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+h1:hover .headerlink,
+h2:hover .headerlink,
+h3:hover .headerlink {
+  opacity: 0.3;
+}
+
+/* ========================================
+   MOBILE RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+  .hero {
+    padding: 2rem 1rem 1.5rem;
+  }
+  
+  .comparison-card, .feature {
+    padding: 1.25rem;
+  }
+  
+  .btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+  }
+  
+  .md-typeset pre {
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h2 {
+    font-size: 1.25rem;
+  }
+  
+  .hero p {
+    font-size: 0.95rem;
+  }
+  
+  .feature h3 {
+    font-size: 1rem;
+  }
+  
+  .comparison-card h3 {
+    font-size: 0.95rem;
+  }
+  
+  .comparison-card pre {
+    font-size: 0.7rem;
+  }
+  
+  .tabbed-set > input + label {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .linter-badge {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  /* Buttons stack on very small screens */
+  .hero .btn {
+    display: block;
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+}
+
+/* ========================================
+   IMAGES & TABLES
+   ======================================== */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.md-typeset table:not([class]) {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 8px;
+}
+
+/* ========================================
+   SMOOTH SCROLLING & ANIMATIONS
+   ======================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

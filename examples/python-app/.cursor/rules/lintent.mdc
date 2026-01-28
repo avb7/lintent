@@ -1,0 +1,58 @@
+---
+description: Guidelines for fixing lint violations using semantic context from lintent
+globs: ["**/*.py"]
+alwaysApply: true
+---
+
+# Lintent Semantic Linting
+
+When fixing lint issues in this project, always use lintent for semantic context.
+
+## Before Fixing Any Lint Issue
+
+Always run lintent first to understand the semantic meaning:
+
+```bash
+lintent run --pretty
+```
+
+This provides three key pieces of context for each violation:
+- **illegal**: What the code is doing wrong
+- **legal**: How to fix it properly  
+- **why**: The reasoning behind the rule
+
+## Fixing Violations
+
+1. **Read the semantic context** - Don't just delete flagged code. Understand why it's flagged.
+
+2. **Never add inline lint comments** - Do NOT add comments like `# F401: unused import` or `# B006: mutable default`. The lintent semantic context is the documentation - no need to duplicate it in code.
+
+3. **Follow the "legal" guidance** - The `legal` field tells you the correct fix:
+   - For unused imports: Only import what you use, or mark with `# noqa: F401` if needed for side-effects
+   - For unused variables: Use them, remove them, or prefix with `_` if intentional
+   - For mutable defaults: Use `None` as default and create mutable inside function
+   - For long lines: Break into multiple lines or extract to named variables
+   - For complexity: Break into smaller functions with single responsibilities
+
+3. **Don't blindly delete** - Some "unused" code may be intentional:
+   - Re-exports in `__init__.py`
+   - Side-effect imports
+   - Variables for debugging
+   
+4. **Preserve functionality** - The fix should maintain the code's intent while satisfying the linter.
+
+## Custom Rules
+
+Check `lintent.yaml` for project-specific semantic definitions. If you encounter a violation without semantic context, consider adding a custom rule.
+
+## Example Workflow
+
+```bash
+# 1. See violations with semantic context
+lintent run --pretty
+
+# 2. Fix violations following the "legal" guidance
+
+# 3. Verify fixes
+lintent run --pretty
+```

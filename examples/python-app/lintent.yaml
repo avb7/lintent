@@ -1,5 +1,5 @@
 # lintent.yaml - Semantic meaning for lint rules
-# Linters are auto-detected from pyproject.toml
+# Linters are auto-detected from pyproject.toml, pyrightconfig.json, etc.
 
 rules:
   ruff:
@@ -25,7 +25,7 @@ rules:
     
     B006:
       illegal: "Mutable default argument in function definition"
-      legal: "Use None as default and create mutable inside function body"
+      legal: "Use None as default and create mutable inside function"
       why: "Mutable defaults are shared across calls, causing subtle bugs"
     
     C901:

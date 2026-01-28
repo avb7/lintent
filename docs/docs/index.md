@@ -2,7 +2,7 @@
 
 <div class="hero" markdown>
 
-<pre style="color: #f97316; font-family: 'JetBrains Mono', monospace; font-size: clamp(0.4rem, 1.2vw, 0.65rem); line-height: 1.1;">░██ ░██              ░██                             ░██    
+<pre class="ascii-logo" style="color: #f97316; font-family: 'JetBrains Mono', monospace; font-size: clamp(0.3rem, 1vw, 0.55rem); line-height: 1.1; overflow-x: auto; max-width: 100%;">░██ ░██              ░██                             ░██    
 ░██                  ░██                             ░██    
 ░██ ░██░████████  ░████████  ░███████  ░████████  ░████████ 
 ░██ ░██░██    ░██    ░██    ░██    ░██ ░██    ░██    ░██    
@@ -25,7 +25,10 @@ Linters say what's wrong — lintent explains **why** and **how** to fix it.
 ### ❌ Raw Linter
 
 ```json
-{ "code": "F401", "message": "`os` imported but unused" }
+{
+  "code": "F401",
+  "message": "`os` imported but unused"
+}
 ```
 
 AI: *deletes the import* 🤷
