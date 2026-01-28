@@ -1,4 +1,4 @@
-# lintent
+# Lintent
 
 [![npm version](https://img.shields.io/npm/v/lintent.svg)](https://www.npmjs.com/package/lintent)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
