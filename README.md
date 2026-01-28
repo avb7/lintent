@@ -1,4 +1,4 @@
-# Lintent
+# lintent
 
 [![npm version](https://img.shields.io/npm/v/lintent.svg)](https://www.npmjs.com/package/lintent)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -7,37 +7,40 @@
 
 Linters tell you what's wrong. lintent tells you **why** it's wrong and **how** to fix it properly.
 
-## The Problem
+<table>
+<tr>
+<td width="50%">
 
-```json
-{ "code": "F401", "message": "`os` imported but unused" }
-```
-
-This tells an AI agent **what** to fix, but not:
-- **Why** the rule exists
-- **How** to fix it correctly
-
-Result: Mechanical fixes that miss the point.
-
-## The Solution
-
-```bash
-$ lintent run --pretty
-```
-
+### ❌ Raw Linter
 ```json
 {
   "code": "F401",
-  "message": "`os` imported but unused",
+  "message": "`os` imported but unused"
+}
+```
+AI: *deletes the import* 🤷
+
+</td>
+<td width="50%">
+
+### ✅ With lintent  
+```json
+{
+  "code": "F401",
   "semantic": {
-    "illegal": "Importing modules that are not used",
-    "legal": "Only import what you use, or mark with # noqa if for side-effects",
-    "why": "Clean dependency graph, faster startup"
+    "illegal": "Unused imports",
+    "legal": "Remove, or # noqa for side-effects",
+    "why": "Clean deps, faster startup"
   }
 }
 ```
+AI: *understands the intent* ✨
 
-Now the AI understands:
+</td>
+</tr>
+</table>
+
+The `semantic` fields tell your AI agent:
 - **illegal**: What pattern triggered the error
 - **legal**: What correct code looks like (including exceptions!)
 - **why**: The reasoning behind the rule

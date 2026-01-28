@@ -18,6 +18,41 @@ Linters say what's wrong — lintent explains **why** and **how** to fix it.
 
 </div>
 
+<div class="comparison" markdown>
+
+<div class="comparison-card bad" markdown>
+
+### ❌ Raw Linter
+
+```json
+{ "code": "F401", "message": "`os` imported but unused" }
+```
+
+AI: *deletes the import* 🤷
+
+</div>
+
+<div class="comparison-card good" markdown>
+
+### ✅ With lintent
+
+```json
+{
+  "code": "F401",
+  "semantic": {
+    "illegal": "Unused imports",
+    "legal": "Remove, or # noqa for side-effects",
+    "why": "Clean deps, faster startup"
+  }
+}
+```
+
+AI: *understands the intent* ✨
+
+</div>
+
+</div>
+
 ---
 
 ## 🚀 Quickstart: Let Your Agent Set It Up
