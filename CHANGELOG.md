@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/avb7/lintent/compare/v1.1.0...v1.2.0) (2026-01-28)
+
+
+### Features
+
+* better for agents and better docs ([9f0ccd0](https://github.com/avb7/lintent/commit/9f0ccd07b7a0a43be8dc020040a6bca656d75f4c))
+
 # [1.1.0](https://github.com/avb7/lintent/compare/v1.0.0...v1.1.0) (2026-01-28)
 
 
