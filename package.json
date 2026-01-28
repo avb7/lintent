@@ -1,0 +1,44 @@
+{
+  "name": "lintent",
+  "version": "0.1.0",
+  "description": "A lint runner that enriches violations with semantic meaning for LLMs",
+  "type": "module",
+  "main": "./dist/index.js",
+  "bin": {
+    "lintent": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "vitest",
+    "lint": "tsc --noEmit"
+  },
+  "keywords": [
+    "lint",
+    "linter",
+    "ai",
+    "llm",
+    "semantic",
+    "ruff",
+    "eslint",
+    "pyright"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^12.1.0",
+    "yaml": "^2.6.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "dist",
+    "presets"
+  ]
+}

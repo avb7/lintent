@@ -1,0 +1,19 @@
+[project]
+name = "python-example-app"
+version = "0.1.0"
+description = "Example Python app with intentional lint violations for lintent testing"
+requires-python = ">=3.10"
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "I", "B", "C90"]
+
+[tool.ruff.lint]
+# Enable specific rules for testing
+select = ["E501", "F401", "F841", "I001", "B006", "C901"]
+
+[tool.pyright]
+typeCheckingMode = "basic"
+reportMissingTypeStubs = true
+reportUnusedVariable = true
+reportMissingParameterType = true

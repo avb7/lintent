@@ -1,0 +1,110 @@
+site_name: lintent
+site_description: A lint runner that enriches violations with semantic meaning for LLMs
+site_url: https://lintent.dev
+
+repo_name: lintent/lintent
+repo_url: https://github.com/lintent/lintent
+
+theme:
+  name: material
+  custom_dir: overrides
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  
+  font:
+    text: Inter
+    code: JetBrains Mono
+  
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - toc.follow
+
+  icon:
+    repo: fontawesome/brands/github
+
+extra_css:
+  - stylesheets/shadcn.css
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+  - tags
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+    - Quick Start: getting-started/quick-start.md
+    - Configuration: getting-started/configuration.md
+  - Concepts:
+    - How It Works: concepts/how-it-works.md
+    - Semantic Rules: concepts/semantic-rules.md
+    - Auto-Detection: concepts/auto-detection.md
+  - Guides:
+    - Python Projects: guides/python.md
+    - TypeScript Projects: guides/typescript.md
+    - Monorepos: guides/monorepo.md
+    - CI/CD Integration: guides/ci-cd.md
+    - Cursor Integration: guides/cursor-integration.md
+  - Reference:
+    - CLI Commands: reference/cli.md
+    - Configuration: reference/config.md
+    - Output Format: reference/output.md
+    - Presets: reference/presets.md
+  - For AI Agents:
+    - Overview: ai-agents/overview.md
+  - Troubleshooting: troubleshooting.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/lintent/lintent
+    - icon: fontawesome/brands/npm
+      link: https://www.npmjs.com/package/lintent

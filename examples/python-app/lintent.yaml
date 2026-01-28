@@ -1,0 +1,55 @@
+# lintent.yaml - Semantic meaning for lint rules
+# Linters are auto-detected from pyproject.toml
+
+rules:
+  ruff:
+    E501:
+      illegal: "Lines over 88 characters"
+      legal: "Break into multiple lines or extract to named variables"
+      why: "Readability - code should fit in viewport without horizontal scrolling"
+    
+    F401:
+      illegal: "Importing modules that are not used"
+      legal: "Only import what you use, or mark with # noqa: F401 if for side-effects"
+      why: "Clean dependency graph, faster startup, clearer code"
+    
+    F841:
+      illegal: "Assigning to a variable that is never read"
+      legal: "Use the variable, remove the assignment, or prefix with _ if intentional"
+      why: "Dead code indicates logic errors or incomplete refactoring"
+    
+    I001:
+      illegal: "Imports not sorted correctly"
+      legal: "Group imports: stdlib, third-party, local. Sort alphabetically within groups"
+      why: "Consistent import ordering makes dependencies scannable"
+    
+    B006:
+      illegal: "Mutable default argument in function definition"
+      legal: "Use None as default and create mutable inside function body"
+      why: "Mutable defaults are shared across calls, causing subtle bugs"
+    
+    C901:
+      illegal: "Function is too complex (high cyclomatic complexity)"
+      legal: "Break into smaller functions with single responsibilities"
+      why: "Complex functions are hard to test, understand, and maintain"
+
+  pyright:
+    reportMissingTypeStubs:
+      illegal: "Using untyped libraries without acknowledgment"
+      legal: "Install type stubs (types-*), use py.typed packages, or add explicit ignore"
+      why: "Type boundaries must be explicit for full type safety"
+    
+    reportUnusedVariable:
+      illegal: "Variable declared but never read"
+      legal: "Use the variable or prefix with _ to indicate intentional discard"
+      why: "Unused variables suggest incomplete logic or dead code"
+    
+    reportMissingParameterType:
+      illegal: "Function parameter without type annotation"
+      legal: "Add type hints: def func(param: Type) -> ReturnType"
+      why: "Type annotations enable tooling and catch errors at edit time"
+    
+    reportGeneralTypeIssues:
+      illegal: "Type mismatch or incompatible types"
+      legal: "Fix the type error or use explicit type narrowing"
+      why: "Type errors often indicate logic bugs that would fail at runtime"

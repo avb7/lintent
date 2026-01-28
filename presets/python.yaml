@@ -1,0 +1,125 @@
+# lintent preset: python
+# Semantic meanings for common ruff + pyright lint rules
+
+rules:
+  ruff:
+    # Line length
+    E501:
+      illegal: "Lines over 88 characters"
+      legal: "Break into multiple lines or extract to named variables"
+      why: "Readability - code should fit in viewport without horizontal scrolling"
+    
+    # Unused imports
+    F401:
+      illegal: "Importing modules that are not used"
+      legal: "Only import what you use, or mark with # noqa: F401 if for side-effects"
+      why: "Clean dependency graph, faster startup, clearer code"
+    
+    # Unused variables
+    F841:
+      illegal: "Assigning to a variable that is never read"
+      legal: "Use the variable, remove the assignment, or prefix with _ if intentional"
+      why: "Dead code indicates logic errors or incomplete refactoring"
+    
+    # Import sorting
+    I001:
+      illegal: "Imports not sorted correctly"
+      legal: "Group imports: stdlib, third-party, local. Sort alphabetically within groups"
+      why: "Consistent import ordering makes dependencies scannable"
+    
+    # Mutable default arguments
+    B006:
+      illegal: "Mutable default argument in function definition"
+      legal: "Use None as default and create mutable inside function body"
+      why: "Mutable defaults are shared across calls, causing subtle bugs"
+    
+    # Complexity
+    C901:
+      illegal: "Function is too complex (high cyclomatic complexity)"
+      legal: "Break into smaller functions with single responsibilities"
+      why: "Complex functions are hard to test, understand, and maintain"
+    
+    # Undefined names
+    F821:
+      illegal: "Using a name that is not defined"
+      legal: "Import or define the name before using it"
+      why: "Undefined names cause NameError at runtime"
+    
+    # Redefined unused
+    F811:
+      illegal: "Redefining unused name from outer scope"
+      legal: "Use the name or choose a different name"
+      why: "Shadows outer name without using it, likely a bug"
+    
+    # Assert usage
+    B011:
+      illegal: "Using assert False instead of raise AssertionError"
+      legal: "Use raise AssertionError() or raise AssertionError('message')"
+      why: "Assert statements can be stripped by -O flag"
+    
+    # Print statements
+    T201:
+      illegal: "Using print() in production code"
+      legal: "Use logging module or remove debug statements"
+      why: "Print is for debugging, use proper logging in production"
+    
+    # Star imports
+    F403:
+      illegal: "Using from module import *"
+      legal: "Import specific names explicitly"
+      why: "Star imports pollute namespace and hide where names come from"
+    
+    # Bare except
+    E722:
+      illegal: "Using bare except clause"
+      legal: "Catch specific exceptions: except ValueError or except Exception"
+      why: "Bare except catches SystemExit and KeyboardInterrupt"
+
+  pyright:
+    # Missing type stubs
+    reportMissingTypeStubs:
+      illegal: "Using untyped libraries without acknowledgment"
+      legal: "Install type stubs (types-*), use py.typed packages, or add explicit ignore"
+      why: "Type boundaries must be explicit for full type safety"
+    
+    # Unused variables
+    reportUnusedVariable:
+      illegal: "Variable declared but never read"
+      legal: "Use the variable or prefix with _ to indicate intentional discard"
+      why: "Unused variables suggest incomplete logic or dead code"
+    
+    # Missing parameter types
+    reportMissingParameterType:
+      illegal: "Function parameter without type annotation"
+      legal: "Add type hints: def func(param: Type) -> ReturnType"
+      why: "Type annotations enable tooling and catch errors at edit time"
+    
+    # General type issues
+    reportGeneralTypeIssues:
+      illegal: "Type mismatch or incompatible types"
+      legal: "Fix the type error or use explicit type narrowing"
+      why: "Type errors often indicate logic bugs that would fail at runtime"
+    
+    # Missing return type
+    reportMissingReturnType:
+      illegal: "Function missing return type annotation"
+      legal: "Add return type: def func() -> ReturnType"
+      why: "Return types document function contracts and enable verification"
+    
+    # Unused imports
+    reportUnusedImport:
+      illegal: "Import is not used in the module"
+      legal: "Remove unused import or mark as used for side effects"
+      why: "Unused imports clutter code and slow startup"
+    
+    # Optional member access
+    reportOptionalMemberAccess:
+      illegal: "Accessing member on potentially None value"
+      legal: "Add None check or use Optional chaining"
+      why: "Will raise AttributeError if value is None at runtime"
+    
+    # Private usage
+    reportPrivateUsage:
+      illegal: "Accessing private member from outside class"
+      legal: "Use public API or reconsider the access pattern"
+      why: "Private members are implementation details that may change"

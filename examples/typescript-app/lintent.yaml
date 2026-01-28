@@ -1,0 +1,65 @@
+# lintent.yaml - Semantic meaning for lint rules
+# Linters are auto-detected from tsconfig.json, eslint.config.js
+
+rules:
+  eslint:
+    no-unused-vars:
+      illegal: "Variable declared but never read"
+      legal: "Remove unused variables or prefix with _ to indicate intentional"
+      why: "Dead code clutters the codebase and suggests incomplete logic"
+    
+    "@typescript-eslint/no-unused-vars":
+      illegal: "Variable, import, or parameter declared but never used"
+      legal: "Remove unused declarations or prefix with _ if intentionally unused"
+      why: "Unused code increases bundle size and confuses readers"
+    
+    no-console:
+      illegal: "console.log or other console methods in production code"
+      legal: "Use a proper logger or remove debug statements"
+      why: "Console statements are for debugging only, not production"
+    
+    prefer-const:
+      illegal: "Using let for variables that are never reassigned"
+      legal: "Use const for values that don't change"
+      why: "const signals intent and prevents accidental mutation"
+    
+    eqeqeq:
+      illegal: "Using == or != instead of === or !=="
+      legal: "Use strict equality (===) to avoid type coercion"
+      why: "Loose equality has surprising coercion rules that cause bugs"
+    
+    no-var:
+      illegal: "Using var to declare variables"
+      legal: "Use let or const instead of var"
+      why: "var has function scope and hoisting that causes confusion"
+    
+    "@typescript-eslint/no-explicit-any":
+      illegal: "Using 'any' type annotation"
+      legal: "Use specific types, generics, or unknown instead of any"
+      why: "any disables type checking, defeating TypeScript's purpose"
+
+  typescript:
+    TS2322:
+      illegal: "Type mismatch in assignment"
+      legal: "Ensure types align or use proper type conversion"
+      why: "Type mismatches indicate logic errors that would fail at runtime"
+    
+    TS2345:
+      illegal: "Argument type doesn't match parameter type"
+      legal: "Pass correct type or fix function signature"
+      why: "Type safety ensures function contracts are honored"
+    
+    TS7006:
+      illegal: "Parameter implicitly has 'any' type"
+      legal: "Add explicit type annotation to parameter"
+      why: "Explicit types enable tooling and catch errors early"
+    
+    TS2304:
+      illegal: "Cannot find name (undefined variable or missing import)"
+      legal: "Import the module or define the variable"
+      why: "Referencing undefined names will fail at runtime"
+    
+    TS2339:
+      illegal: "Property does not exist on type"
+      legal: "Check type definition or add missing property"
+      why: "Accessing non-existent properties indicates wrong type assumption"

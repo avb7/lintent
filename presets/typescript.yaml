@@ -1,0 +1,155 @@
+# lintent preset: typescript
+# Semantic meanings for common eslint + typescript lint rules
+
+rules:
+  eslint:
+    # Unused variables
+    no-unused-vars:
+      illegal: "Variable declared but never read"
+      legal: "Remove unused variables or prefix with _ to indicate intentional"
+      why: "Dead code clutters the codebase and suggests incomplete logic"
+    
+    # TypeScript version of unused vars
+    "@typescript-eslint/no-unused-vars":
+      illegal: "Variable, import, or parameter declared but never used"
+      legal: "Remove unused declarations or prefix with _ if intentionally unused"
+      why: "Unused code increases bundle size and confuses readers"
+    
+    # Console statements
+    no-console:
+      illegal: "console.log or other console methods in production code"
+      legal: "Use a proper logger or remove debug statements"
+      why: "Console statements are for debugging only, not production"
+    
+    # Prefer const
+    prefer-const:
+      illegal: "Using let for variables that are never reassigned"
+      legal: "Use const for values that don't change"
+      why: "const signals intent and prevents accidental mutation"
+    
+    # Strict equality
+    eqeqeq:
+      illegal: "Using == or != instead of === or !=="
+      legal: "Use strict equality (===) to avoid type coercion"
+      why: "Loose equality has surprising coercion rules that cause bugs"
+    
+    # No var
+    no-var:
+      illegal: "Using var to declare variables"
+      legal: "Use let or const instead of var"
+      why: "var has function scope and hoisting that causes confusion"
+    
+    # Explicit any
+    "@typescript-eslint/no-explicit-any":
+      illegal: "Using 'any' type annotation"
+      legal: "Use specific types, generics, or unknown instead of any"
+      why: "any disables type checking, defeating TypeScript's purpose"
+    
+    # No floating promises
+    "@typescript-eslint/no-floating-promises":
+      illegal: "Promise returned but not awaited or handled"
+      legal: "await the promise or attach .catch() handler"
+      why: "Unhandled promises can fail silently"
+    
+    # No misused promises
+    "@typescript-eslint/no-misused-promises":
+      illegal: "Promise used in incorrect context (e.g., as boolean)"
+      legal: "await the promise or check the resolved value"
+      why: "Promises are always truthy, comparisons don't work as expected"
+    
+    # Require await
+    "@typescript-eslint/require-await":
+      illegal: "Async function has no await expression"
+      legal: "Add await or remove async keyword"
+      why: "Unnecessary async adds overhead and suggests incomplete code"
+    
+    # No unnecessary type assertion
+    "@typescript-eslint/no-unnecessary-type-assertion":
+      illegal: "Type assertion that doesn't change the type"
+      legal: "Remove the unnecessary assertion"
+      why: "Redundant assertions clutter code and may hide issues"
+    
+    # Prefer nullish coalescing
+    "@typescript-eslint/prefer-nullish-coalescing":
+      illegal: "Using || when ?? would be more appropriate"
+      legal: "Use ?? for null/undefined checks to preserve falsy values"
+      why: "|| treats '', 0, false as falsy; ?? only checks null/undefined"
+    
+    # Prefer optional chain
+    "@typescript-eslint/prefer-optional-chain":
+      illegal: "Using && chains for optional property access"
+      legal: "Use optional chaining: obj?.prop?.nested"
+      why: "Optional chaining is clearer and more concise"
+    
+    # No unsafe assignment
+    "@typescript-eslint/no-unsafe-assignment":
+      illegal: "Assigning any to typed variable"
+      legal: "Properly type the source or use type assertion with caution"
+      why: "any spreads through code, disabling type safety"
+    
+    # No debugger
+    no-debugger:
+      illegal: "debugger statement in code"
+      legal: "Remove debugger before committing"
+      why: "Debugger statements should not reach production"
+
+  typescript:
+    # Type assignment mismatch
+    TS2322:
+      illegal: "Type mismatch in assignment"
+      legal: "Ensure types align or use proper type conversion"
+      why: "Type mismatches indicate logic errors that would fail at runtime"
+    
+    # Argument type mismatch
+    TS2345:
+      illegal: "Argument type doesn't match parameter type"
+      legal: "Pass correct type or fix function signature"
+      why: "Type safety ensures function contracts are honored"
+    
+    # Implicit any parameter
+    TS7006:
+      illegal: "Parameter implicitly has 'any' type"
+      legal: "Add explicit type annotation to parameter"
+      why: "Explicit types enable tooling and catch errors early"
+    
+    # Cannot find name
+    TS2304:
+      illegal: "Cannot find name (undefined variable or missing import)"
+      legal: "Import the module or define the variable"
+      why: "Referencing undefined names will fail at runtime"
+    
+    # Property does not exist
+    TS2339:
+      illegal: "Property does not exist on type"
+      legal: "Check type definition or add missing property"
+      why: "Accessing non-existent properties indicates wrong type assumption"
+    
+    # Not assignable to parameter
+    TS2769:
+      illegal: "No overload matches this call"
+      legal: "Check argument types against function signatures"
+      why: "Arguments don't match any function overload"
+    
+    # Object possibly undefined
+    TS2532:
+      illegal: "Object is possibly 'undefined'"
+      legal: "Add null check or use optional chaining"
+      why: "Accessing undefined will throw at runtime"
+    
+    # Object possibly null
+    TS2531:
+      illegal: "Object is possibly 'null'"
+      legal: "Add null check or use non-null assertion if certain"
+      why: "Accessing null will throw at runtime"
+    
+    # Missing property
+    TS2741:
+      illegal: "Property is missing in type assignment"
+      legal: "Add the missing property or make it optional in type"
+      why: "Required properties must be provided"
+    
+    # Type not assignable
+    TS2352:
+      illegal: "Conversion between types may be a mistake"
+      legal: "Use proper type casting or unknown as intermediate"
+      why: "Direct casting between unrelated types is likely wrong"
