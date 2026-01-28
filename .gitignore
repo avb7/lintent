@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+docs/site/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Test coverage
+coverage/
+
+# Temp files
+*.tmp
+*.temp
+test-*-temp/
+
+# Environment
+.env
+.env.local
+
+# Planning docs (internal)
+masterplan.md
+PRD.md
