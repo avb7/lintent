@@ -1,5 +1,8 @@
 # lintent
 
+[![npm version](https://img.shields.io/npm/v/lintent.svg)](https://www.npmjs.com/package/lintent)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 **Make slop illegal.** Give your AI agent a map to write clean code.
 
 Linters tell you what's wrong. lintent tells you **why** it's wrong and **how** to fix it properly.
@@ -55,7 +58,7 @@ npx lintent run
 
 ```bash
 # Initialize with preset
-lintent init --preset python   # For Python (ruff + pyright)
+lintent init --preset python      # For Python (ruff + pyright)
 lintent init --preset typescript  # For TypeScript (eslint + tsc)
 
 # Run
@@ -237,7 +240,7 @@ Want to help? See our [Contributing Guide](./DEVGUIDE.md).
 
 ## Documentation
 
-Full documentation at [lintent.dev](https://lintent.dev) (coming soon)
+Full documentation at [avb7.github.io/lintent](https://avb7.github.io/lintent)
 
 Or run locally:
 
