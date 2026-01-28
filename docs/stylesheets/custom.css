@@ -1,0 +1,228 @@
+/* Custom overrides for lintent branding */
+
+/* Orange color - lintent brand */
+:root {
+  --lintent-orange: #f97316;
+  --lintent-orange-dark: #ea580c;
+}
+
+/* ASCII Logo styling */
+.ascii-logo {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
+  font-size: clamp(0.4rem, 1.2vw, 0.65rem);
+  line-height: 1.1;
+  white-space: pre;
+  color: var(--lintent-orange) !important;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+/* Highlight class for headlines */
+.highlight {
+  color: var(--lintent-orange) !important;
+  background: none !important;
+}
+
+/* Hide permalink symbols or make them subtle */
+.headerlink {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+h1:hover .headerlink,
+h2:hover .headerlink,
+h3:hover .headerlink {
+  opacity: 0.3;
+}
+
+/* Hero section */
+.hero {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  margin-bottom: 1rem;
+}
+
+.hero .highlight {
+  color: var(--lintent-orange) !important;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  opacity: 0.8;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+/* Button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0.375rem;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--lintent-orange) !important;
+  color: white !important;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-secondary {
+  border: 1px solid hsl(var(--border));
+  color: hsl(var(--foreground));
+}
+
+.btn-secondary:hover {
+  background: hsl(var(--muted));
+}
+
+/* Feature grid */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+.feature {
+  padding: 1.5rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+
+.feature:hover {
+  border-color: var(--lintent-orange);
+  transform: translateY(-2px);
+}
+
+.feature h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.feature p {
+  margin-bottom: 0;
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+/* Code comparison cards */
+.comparison {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.comparison-card {
+  padding: 1.5rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.5rem;
+}
+
+.comparison-card.bad {
+  border-color: hsl(0 84% 60%);
+}
+
+.comparison-card.good {
+  border-color: hsl(142 76% 36%);
+}
+
+.comparison-card h3 {
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Linter badges */
+.linters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.linter-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: hsl(var(--muted));
+  border-radius: 0.375rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Agent prompt box */
+.agent-prompt {
+  background: hsl(var(--muted));
+  border: 2px solid var(--lintent-orange);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.agent-prompt pre {
+  margin: 0;
+  white-space: pre-wrap;
+  font-size: 0.875rem;
+}
+
+/* Terminal preview */
+.terminal {
+  background: hsl(240 10% 4%);
+  color: hsl(0 0% 95%);
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  overflow-x: auto;
+}
+
+.terminal .prompt { color: #a1a1aa; }
+.terminal .cmd { color: #22c55e; }
+.terminal .key { color: #f97316; }
+.terminal .str { color: #a5f3fc; }
+
+/* Center content sections */
+.section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  text-align: center;
+  opacity: 0.7;
+  margin-bottom: 2rem;
+}
+
+/* Hide on small screens */
+@media (max-width: 480px) {
+  .ascii-logo { display: none; }
+  .hero h1 { font-size: 2rem; }
+}

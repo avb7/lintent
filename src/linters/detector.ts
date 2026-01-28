@@ -115,13 +115,18 @@ function detectEslint(cwd: string): DetectedLinter | null {
     ".eslintrc.yaml",
   ];
 
+  // Check if eslint is locally installed
+  const localEslint = join(cwd, "node_modules", ".bin", "eslint");
+  const useLocalBin = existsSync(localEslint);
+  const command = useLocalBin ? localEslint : "eslint";
+
   for (const configFile of eslintConfigs) {
     const configPath = join(cwd, configFile);
     if (existsSync(configPath)) {
       return {
         name: "eslint",
         configPath,
-        command: "eslint",
+        command,
         args: ["--format", "json"],
         paths: ["."],
       };
@@ -142,7 +147,7 @@ function detectEslint(cwd: string): DetectedLinter | null {
         return {
           name: "eslint",
           configPath: null,
-          command: "eslint",
+          command,
           args: ["--format", "json"],
           paths: ["."],
         };
@@ -161,10 +166,14 @@ function detectEslint(cwd: string): DetectedLinter | null {
 function detectTypescript(cwd: string): DetectedLinter | null {
   const tsconfig = join(cwd, "tsconfig.json");
   if (existsSync(tsconfig)) {
+    // Check if tsc is locally installed
+    const localTsc = join(cwd, "node_modules", ".bin", "tsc");
+    const command = existsSync(localTsc) ? localTsc : "tsc";
+    
     return {
       name: "typescript",
       configPath: tsconfig,
-      command: "tsc",
+      command,
       args: ["--noEmit", "--pretty", "false"],
       paths: ["."],
     };

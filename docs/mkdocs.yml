@@ -1,64 +1,24 @@
 site_name: lintent
-site_description: A lint runner that enriches violations with semantic meaning for LLMs
+site_description: Lint + Intent. Make slop illegal. A semantic lint runner for AI agents.
 site_url: https://avb7.github.io/lintent
 
 repo_name: avb7/lintent
 repo_url: https://github.com/avb7/lintent
 
 theme:
-  name: material
-  custom_dir: overrides
-  palette:
-    # Light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: custom
-      accent: custom
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-    # Dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: custom
-      accent: custom
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
-  
+  name: shadcn
+  palette: orange
   font:
     text: Inter
     code: JetBrains Mono
-  
-  features:
-    - navigation.instant
-    - navigation.instant.prefetch
-    - navigation.tracking
-    - navigation.tabs
-    - navigation.sections
-    - navigation.expand
-    - navigation.top
-    - search.suggest
-    - search.highlight
-    - content.code.copy
-    - content.code.annotate
-    - content.tabs.link
-    - toc.follow
-
-  icon:
-    repo: fontawesome/brands/github
 
 extra_css:
-  - stylesheets/shadcn.css
+  - stylesheets/custom.css
 
 markdown_extensions:
   - admonition
   - pymdownx.details
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.superfences
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -70,12 +30,12 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - tables
+  - footnotes
   - toc:
-      permalink: true
+      permalink: false
 
 plugins:
   - search
-  - tags
 
 nav:
   - Home: index.md

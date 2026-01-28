@@ -40,10 +40,15 @@ export async function initCommand(options: InitOptions): Promise<void> {
     // Write lintent.yaml
     writeFileSync(configPath, presetContent);
 
-    // Output success
+    // Output success with next steps
     const result = {
       created: ["lintent.yaml"],
       preset,
+      next_steps: [
+        "Install linter: " + (preset === "python" ? "pip install ruff" : "npm install -D eslint"),
+        "Run: lintent run --pretty",
+        "Optional: lintent guide - get AI agent setup instructions"
+      ]
     };
     console.log(outputJson(result, options.pretty ?? false));
   } catch (error) {

@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "commander": "^12.1.0",
+    "lintent": "^1.0.0",
     "yaml": "^2.6.1"
   },
   "devDependencies": {

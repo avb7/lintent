@@ -5,6 +5,7 @@ import { runCommand } from "./commands/run.js";
 import { initCommand } from "./commands/init.js";
 import { validateCommand } from "./commands/validate.js";
 import { listCommand } from "./commands/list.js";
+import { guideCommand } from "./commands/guide.js";
 
 const LOGO = `
 ░██ ░██              ░██                             ░██    
@@ -16,7 +17,7 @@ const LOGO = `
 ░██ ░██░██    ░██     ░████  ░███████  ░██    ░██     ░████ 
 
   Make slop illegal.
-  https://lintent.dev
+  https://avb7.github.io/lintent
 `;
 
 const program = new Command();
@@ -40,6 +41,7 @@ program
   .command("init")
   .description("Create starter lintent.yaml")
   .option("--preset <name>", "Use preset (python, typescript)", "python")
+  .option("-p, --pretty", "Pretty-print JSON output")
   .action(async (options) => {
     await initCommand(options);
   });
@@ -60,6 +62,13 @@ program
   .option("-p, --pretty", "Pretty-print JSON output")
   .action(async (options) => {
     await listCommand(options);
+  });
+
+program
+  .command("guide [topic]")
+  .description("Output AI agent guide (topics: setup, fix, config, rules, customize)")
+  .action(async (topic) => {
+    await guideCommand(topic);
   });
 
 // Show logo when called without arguments

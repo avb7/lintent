@@ -46,7 +46,7 @@ export async function runCommand(options: RunOptions): Promise<void> {
     if (linters.length === 0) {
       const error = formatError(
         "NO_LINTERS",
-        "No linters detected. Ensure linter config files exist (pyproject.toml, eslint.config.js, etc.)"
+        "No linters detected. To fix: 1) Install a linter (pip install ruff, npm install eslint), 2) Create config file (pyproject.toml, eslint.config.js), 3) Run 'lintent init' to create lintent.yaml"
       );
       console.log(outputJson(error, options.pretty ?? false));
       process.exit(1);

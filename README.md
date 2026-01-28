@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/lintent.svg)](https://www.npmjs.com/package/lintent)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**Make slop illegal.** Give your AI agent a map to write clean code.
+**Lint + Intent. Make slop illegal.** Give your AI agent a map to write clean code.
 
 Linters tell you what's wrong. lintent tells you **why** it's wrong and **how** to fix it properly.
 
@@ -66,6 +66,23 @@ lintent run --pretty
 ```
 
 ## Using with AI Agents
+
+### Quick Setup with Agent Prompt
+
+Copy this prompt to your AI agent (Cursor, Copilot, etc.) to set up lintent:
+
+> Set up lintent in this project: `npm install -g lintent && lintent init && lintent guide`
+
+### AI Agent Guide
+
+Generate context-aware instructions for your AI agent:
+
+```bash
+lintent guide           # General guide with project status
+lintent guide setup     # Setup instructions
+lintent guide fix       # How to fix violations properly
+lintent guide config    # How to configure lintent.yaml
+```
 
 ### Cursor
 

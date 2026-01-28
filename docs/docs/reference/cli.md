@@ -227,6 +227,53 @@ lintent list --pretty
 
 ---
 
+## `lintent guide`
+
+Output AI agent guides for setup, fixing, and configuration.
+
+```bash
+lintent guide [topic]
+```
+
+### Topics
+
+| Topic | Description |
+|-------|-------------|
+| *(none)* | General AI agent guide with project status |
+| `setup` | How to set up lintent in a project |
+| `fix` | How to properly fix violations |
+| `config` | How to configure lintent.yaml |
+| `rules` | How to write good semantic rules |
+| `customize` | **Interactive**: Analyze codebase and create project-specific rules |
+
+### Examples
+
+```bash
+# Get general guide (includes project context)
+lintent guide
+
+# Get setup instructions
+lintent guide setup
+
+# Get fix guide
+lintent guide fix
+
+# Interactive: create project-specific rules
+lintent guide customize
+
+# Pipe to clipboard (macOS)
+lintent guide | pbcopy
+```
+
+### Output
+
+Markdown-formatted guide that can be:
+- Injected into AI agent prompts
+- Added to Cursor rules
+- Used as documentation
+
+---
+
 ## Error Output
 
 All commands use consistent error format:
